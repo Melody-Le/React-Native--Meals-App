@@ -4,7 +4,12 @@ import CategoryGridTile from './components/CategoryGridTile';
 import CategoriesScreen from './screens/CategoriesScreen';
 
 export default function App() {
-  return <CategoriesScreen />;
+  return (
+    <>
+      <StatusBar style='light' />
+      <CategoriesScreen />
+    </>
+  );
 }
 
 const styles = StyleSheet.create({

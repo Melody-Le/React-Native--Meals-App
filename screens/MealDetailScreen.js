@@ -12,6 +12,7 @@ import MealDetails from '../components/MealDetails';
 import { CATEGORIES, MEALS } from '../data/dummy-data';
 import List from '../components/MealDetail/List';
 import { navigation } from '@react-navigation/native';
+import IconButton from '../components/IconButton';
 
 function MealDetailScreen({ route, navigation }) {
   const mealId = route.params.mealId;
@@ -22,7 +23,13 @@ function MealDetailScreen({ route, navigation }) {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <Button title='Tap Me' onPress={headerButtonPressHandler} />;
+        return (
+          <IconButton
+            onPress={headerButtonPressHandler}
+            icon='star'
+            color='white'
+          />
+        );
       },
     });
   }, [navigation, headerButtonPressHandler]);

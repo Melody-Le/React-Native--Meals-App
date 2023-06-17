@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 function List({ data }) {
   return data.map((item, index) => (
     <View style={styles.listItem}>
-      <Text key={index} style={styles.itemText}>
+      <Text key={item} style={styles.itemText}>
         {item}
       </Text>
     </View>

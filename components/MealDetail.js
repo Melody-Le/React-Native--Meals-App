@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { CATEGORIES, MEALS } from '../data/dummy-data';
 
 function MealDetail({ route }) {
-  console.log(route);
+  const mealId = route.params.mealId;
+  const mealData = MEALS.find((meal) => meal.id === mealId);
   return (
     <View>
       <Text>Meal Detail</Text>

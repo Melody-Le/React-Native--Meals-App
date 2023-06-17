@@ -43,7 +43,7 @@ export default function App() {
             name='MealDetail'
             component={MealDetail}
             options={({ route, navigation }) => {
-              const title = route.params.title;
+              const title = route.params.mealTitle;
               return { title: title };
             }}
           />

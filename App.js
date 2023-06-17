@@ -2,12 +2,44 @@ import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import CategoryGridTile from './components/CategoryGridTile';
 import CategoriesScreen from './screens/CategoriesScreen';
+
 import { NavigationContainer } from '@react-navigation/native';
+
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import MealsOverviewScreen from './screens/MealsOverviewScreen';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import MealDetailScreen from './screens/MealDetailScreen';
+import FavoriteScreen from './screens/FavoriteScreen';
+
 const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
+
+function DrawerNavigator() {
+  return (
+    <Drawer.Navigator
+      screenOptions={{
+        headerStyle: { backgroundColor: '#351401' },
+        headerTintColor: 'white',
+        sceneContainerStyle: {
+          backgroundColor: '#48a0b6',
+        },
+      }}
+    >
+      <Drawer.Screen
+        name='Categories'
+        component={CategoriesScreen}
+        options={{
+          title: 'All Categories',
+        }}
+      />
+      <Drawer.Screen name='Favorites' component={FavoriteScreen} />
+    </Drawer.Navigator>
+  );
+}
+
 export default function App() {
   return (
     <>
@@ -23,10 +55,11 @@ export default function App() {
           }}
         >
           <Stack.Screen
-            name='MealsCategories'
-            component={CategoriesScreen}
+            name='DrawerScreen'
+            component={DrawerNavigator}
             options={{
-              title: 'Meal Categories',
+              // title: 'Meal Categories',
+              headerShown: false,
             }}
           />
           <Stack.Screen
@@ -38,7 +71,6 @@ export default function App() {
             }}
           />
 
-          {/* <Stack.Screen name='MealsOverview' component={MealsOverviewScreen} /> */}
           <Stack.Screen
             name='MealDetail'
             component={MealDetailScreen}

@@ -3,7 +3,7 @@ import { View, FlatList, StyleSheet } from 'react-native';
 import CategoryGridTile from '../components/CategoryGridTile';
 import { CATEGORIES } from '../data/dummy-data';
 
-function CategoriesScreen({ navigation }) {
+function CategoriesScreen({ navigation, route }) {
   function renderCategoryItem(itemData) {
     function pressHandler() {
       navigation.navigate('MealsOverview', {

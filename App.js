@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MealsOverviewScreen from './screens/MealsOverviewScreen';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import MealDetail from './components/MealDetail';
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
@@ -36,7 +37,16 @@ export default function App() {
               return { title: catId };
             }}
           />
+
           {/* <Stack.Screen name='MealsOverview' component={MealsOverviewScreen} /> */}
+          <Stack.Screen
+            name='MealDetail'
+            component={MealDetail}
+            options={({ route, navigation }) => {
+              const title = route.params.title;
+              return { title: title };
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
